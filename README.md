@@ -163,10 +163,8 @@ You should see and now you successfully clone the repo inside your local machine
 
 > "Mastering Git is mastering the history and future of our code."
 
----
-
-🔗 Follow my DevOps journey on GitHub: [mirjSolution](https://github.com/mirjSolution)
+🧑‍💻 _Created by Rico John Dato-on_
+🔗 [LinkedIn](https://www.linkedin.com/in/rico-john-dato-on) • [Portfolio](https://ricodatoon.netlify.app)
 ```
 
-🧑‍💻 _Created by Rico John Dato-on_  
-🔗 [LinkedIn](https://www.linkedin.com/in/rico-john-dato-on) • [Portfolio](https://ricodatoon.netlify.app)
+---
