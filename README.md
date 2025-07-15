@@ -142,8 +142,6 @@ ls .git/
 
 You should see and now you successfully clone the repo inside your local machinerepo
 
-```
-
 ---
 
 ## 🧠 What We Have Learned
@@ -152,7 +150,6 @@ You should see and now you successfully clone the repo inside your local machine
 - GitHub/GitLab account creation & project setup
 - Connecting Git CLI via SSH
 - Creating & cloning repositories
-
 
 ---
 
@@ -165,6 +162,5 @@ You should see and now you successfully clone the repo inside your local machine
 
 🧑‍💻 _Created by Rico John Dato-on_
 🔗 [LinkedIn](https://www.linkedin.com/in/rico-john-dato-on) • [Portfolio](https://ricodatoon.netlify.app)
-```
 
 ---
