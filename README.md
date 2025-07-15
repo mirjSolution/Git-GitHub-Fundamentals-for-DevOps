@@ -42,16 +42,34 @@ vim ~/.zshrc
 Setup configuration .zshrc
 
 ```bash
+# --- Custom Zsh Prompt Configuration ---
+
+# Function to parse Git branch (keeping your existing, functional one)
 parse_git_branch() {
-      git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+  git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
 }
-COLOR_DEF='%f'
-COLOR_USR='%F{243}'
-COLOR_DIR='%F{197}'
-COLOR_GIT='%F{39}'
+
+# New Color Definitions
+COLOR_USER_HOST='%F{033}'       # Bright Blue for user@host
+COLOR_DIRECTORY='%F{048}'      # Vibrant Green for the current directory
+COLOR_GIT_BRANCH='%F{220}'     # Golden Yellow for the Git branch
+COLOR_PROMPT_ARROW='%F{202}' # Bright Orange for the prompt symbol (❯)
+COLOR_RESET='%f'                 # Resets color to default
+
+# Optional: Make specific parts bold
+BOLD_START='%B' # Start bold
+BOLD_END='%b'   # End bold
+
+# Define the newline character for multi-line prompt
 NEWLINE=$'\n'
+
+# Enable PROMPT_SUBST for command substitution and variable expansion in the prompt
 setopt PROMPT_SUBST
-export PROMPT='${COLOR_USR}%n@%M ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%% '
+
+# Define the new creative prompt, now with input on the next line
+export PROMPT='${COLOR_USER_HOST}${BOLD_START}%n@%m${BOLD_END}${COLOR_RESET} ${COLOR_DIRECTORY}%c${COLOR_RESET} ${COLOR_GIT_BRANCH}${BOLD_START}$(parse_git_branch)${BOLD_END}${COLOR_RESET}${NEWLINE}${COLOR_PROMPT_ARROW}❯ ${COLOR_RESET}'
+
+# --- End Custom Zsh Prompt Configuration ---
 ```
 
 Exit and save vim then run on the terminal
@@ -74,36 +92,23 @@ git --version
 
 3. Add your public ssh to connect to your remote git repo:
 
-![Public SSH](Images/addpublicssh.gif)
-
-On your terminal
-
-```bash
-ls .ssh
-cat .ssh/id_rsa.pub
-```
-
-Copy your public ssh
-
-Then go to your GitHub Settings > SSH and GPG Keys > Paste your public SSH > Then save
-
-```bash
-git config --global user.name "Your Name"
-git config --global user.email "you@example.com"
-```
-
 ---
 
 ## 🔐 Authenticating with SSH
 
 To connect Git CLI to GitHub/GitLab without entering credentials every time:
 
-1. Generate an SSH Key:
-   ```bash
-   ssh-keygen -t rsa -b 4096 -C "you@example.com"
-   ```
-2. Add the public key to GitHub/GitLab under SSH Settings.
-3. You’re now ready to securely `clone`, `pull`, and `push`.
+![Public SSH](Images/addpublicssh.gif)
+
+1. On your terminal
+
+```bash
+ls .ssh
+cat .ssh/id_rsa.pub
+```
+
+2. Copy your public ssh
+3. Then go to your GitHub Settings > SSH and GPG Keys > Paste your public SSH > Then save
 
 ---
 
@@ -111,46 +116,43 @@ To connect Git CLI to GitHub/GitLab without entering credentials every time:
 
 ### On GitHub/GitLab:
 
-- Create a new repository (select visibility: public/private)
-- Copy the SSH URL
+![Cloning](Images/cloning.gif)
+
+Go to your repository > find the repo that you want to clone > In Quick setup copy the git hub repo
+
+Like the sample below
+
+```bash
+git clone <your GitHub repo>
+```
 
 ### Locally:
 
+Check if its locally cloned to your machine
+
+![Check terminal](Images/checkgitclone.gif)
+
 ```bash
-git clone git@github.com:your-username/your-repo.git
-cd your-repo
+ls
+cd <your local repo>
+pwd
+ls -a
+ls .git/
+```
+
+You should see and now you successfully clone the repo inside your local machinerepo
+
 ```
 
 ---
 
-## 🔄 Basic Git Workflow
-
-```bash
-# Check status
-git status
-
-# Stage changes
-git add .
-
-# Commit changes
-git commit -m "Your message"
-
-# Push to remote
-git push origin main
-
-# Pull latest changes
-git pull origin main
-```
-
----
-
-## 🧠 What You’ve Learned
+## 🧠 What We Have Learned
 
 - Git architecture: local, remote, staging
 - GitHub/GitLab account creation & project setup
 - Connecting Git CLI via SSH
 - Creating & cloning repositories
-- Daily Git commands
+
 
 ---
 
@@ -159,8 +161,12 @@ git pull origin main
 - Git is central to **CI/CD pipelines**, **collaborative development**, and **infrastructure as code**.
 - Every DevOps engineer must be fluent in Git commands and GitHub/GitLab workflows.
 
-> "Mastering Git is mastering the history and future of your code."
+> "Mastering Git is mastering the history and future of our code."
 
 ---
 
 🔗 Follow my DevOps journey on GitHub: [mirjSolution](https://github.com/mirjSolution)
+```
+
+🧑‍💻 _Created by Rico John Dato-on_  
+🔗 [LinkedIn](https://www.linkedin.com/in/rico-john-dato-on) • [Portfolio](https://ricodatoon.netlify.app)
