@@ -72,12 +72,25 @@ sudo apt install git -y
 git --version
 ```
 
-3. Configure Git user details:
+3. Add your public ssh to connect to your remote git repo:
 
-   ```bash
-   git config --global user.name "Your Name"
-   git config --global user.email "you@example.com"
-   ```
+![Public SSH](Images/addpublicssh.gif)
+
+On your terminal
+
+```bash
+ls .ssh
+cat .ssh/id_rsa.pub
+```
+
+Copy your public ssh
+
+Then go to your GitHub Settings > SSH and GPG Keys > Paste your public SSH > Then save
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
 
 ---
 
