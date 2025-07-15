@@ -29,8 +29,40 @@ Projects can be **public** (open source) or **private** (internal or proprietary
 
 ## 🛠️ Setting Up Git Locally
 
-1. Install Git on your OS (macOS, Windows, or Linux).
-2. Customize your terminal using `.bashrc` or `.zshrc` for better Git prompt visibility.
+1. Customize your terminal using .zshrc` for better Git prompt visibility.
+
+![Repository Creation](Images/createrepo.gif)
+
+```bash
+sudo apt install zsh
+touch ~/.zshrc
+vim ~/.zshrc
+```
+
+Setup configuration .zshrc
+
+```bash
+parse_git_branch() {
+      git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/[\1]/p'
+}
+COLOR_DEF='%f'
+COLOR_USR='%F{243}'
+COLOR_DIR='%F{197}'
+COLOR_GIT='%F{39}'
+NEWLINE=$'\n'
+setopt PROMPT_SUBST
+export PROMPT='${COLOR_USR}%n@%M ${COLOR_GIT}$(parse_git_branch)${COLOR_DEF}${NEWLINE}%% '
+```
+
+Exit and save vim then run on the terminal
+
+```bash
+chsh -s $(which zsh) $(whoami)
+```
+
+After that close the terminal and restart you virtual machine.
+
+2. Install Git client on your OS (macOS, Windows, or Linux).
 3. Configure Git user details:
    ```bash
    git config --global user.name "Your Name"
