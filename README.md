@@ -31,7 +31,7 @@ Projects can be **public** (open source) or **private** (internal or proprietary
 
 1. Customize your terminal using .zshrc` for better Git prompt visibility.
 
-![Repository Creation](Images/createrepo.gif)
+![Repository Creation](Images/configzsh.gif)
 
 ```bash
 sudo apt install zsh
