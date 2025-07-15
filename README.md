@@ -31,7 +31,7 @@ Projects can be **public** (open source) or **private** (internal or proprietary
 
 1. Customize your terminal using .zshrc` for better Git prompt visibility.
 
-![Repository Creation](Images/configzsh.gif)
+![Customize Terminal](Images/configzsh.gif)
 
 ```bash
 sudo apt install zsh
@@ -62,8 +62,18 @@ chsh -s $(which zsh) $(whoami)
 
 After that close the terminal and restart you virtual machine.
 
-2. Install Git client on your OS (macOS, Windows, or Linux).
+2. Install Git client virtual machine.
+
+![Install Git](Images/installgit.gif)
+
+```bash
+sudo apt update
+sudo apt install git -y
+git --version
+```
+
 3. Configure Git user details:
+
    ```bash
    git config --global user.name "Your Name"
    git config --global user.email "you@example.com"
