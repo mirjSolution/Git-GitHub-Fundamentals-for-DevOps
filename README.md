@@ -1,4 +1,4 @@
-# Git & GitHub Fundamentals for DevOps
+# Git & GitHub Fundamentals
 
 Version control is the backbone of modern software development and DevOps. This module introduces you to **Git**, the most widely used version control tool today, and how to integrate it with GitHub or GitLab for effective collaboration, automation, and CI/CD workflows.
 
